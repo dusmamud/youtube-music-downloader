@@ -4,7 +4,7 @@ from pathlib import Path
 # Base Paths
 PACKAGE_DIR = Path(__file__).resolve().parent
 PROJECT_ROOT = PACKAGE_DIR.parent
-OUTPUT_DIR = os.getenv("YT_DOWNLOAD_DIR", r"E:\relvoq\music\yt-downlod\downloads")
+OUTPUT_DIR = os.getenv("YT_DOWNLOAD_DIR", str(PROJECT_ROOT / "downloads"))
 
 # Browser & Auth Modes
 # Modes: 'android' (Cookie-free mobile phone emulation, default), 'browser' (load from browser), 'cookiefile', 'none'

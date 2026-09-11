@@ -1,0 +1,112 @@
+# ==========================================
+# Byte-compiled / Optimized / DLL files
+# ==========================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# ==========================================
+# Audio Downloads & Media Files
+# ==========================================
+downloads/*
+!downloads/.gitkeep
+*.mp3
+*.m4a
+*.flac
+*.opus
+*.webm
+*.aac
+*.ogg
+*.wav
+*.m4v
+*.mp4
+
+# Incomplete downloads & Stream Caches
+*.part
+*.ytdl
+*.temp
+*.tmp
+.cache/
+.cache_stream/
+
+# ==========================================
+# Security & Credentials (DO NOT COMMIT!)
+# ==========================================
+cookies.txt
+*cookies*.txt
+*.cookie
+cookies/
+.env
+.env.*
+!.env.example
+
+# ==========================================
+# Virtual Environments
+# ==========================================
+.venv/
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# ==========================================
+# Distribution / Packaging / Build
+# ==========================================
+.Python
+build/
+develop-eggs/
+dist/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# ==========================================
+# Testing & Code Quality Tool Caches
+# ==========================================
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+nosetests.xml
+coverage.xml
+*.cover
+
+# ==========================================
+# Logs
+# ==========================================
+*.log
+pip-log.txt
+pip-delete-this-directory.txt
+
+# ==========================================
+# IDE & Operating System Files
+# ==========================================
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+ehthumbs_vista.db
+Thumbs.db
+Desktop.ini

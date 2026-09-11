@@ -1,0 +1,46 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "yt-music-dl"
+version = "1.1.0"
+description = "High-performance YouTube Music audio downloader with Android phone emulation, 1:1 album art, and multi-quality transcode."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [
+    { name = "Dus Mamud" }
+]
+dependencies = [
+    "yt-dlp>=2024.8.6",
+    "rich>=13.7.0",
+    "mutagen>=1.47.0",
+    "Pillow>=10.0.0",
+    "requests>=2.31.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/dusmamud/youtube-music-downloader"
+Repository = "https://github.com/dusmamud/youtube-music-downloader.git"
+Issues = "https://github.com/dusmamud/youtube-music-downloader/issues"
+
+[project.scripts]
+yt-music-dl = "yt_music_dl.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["yt_music_dl*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+addopts = "-v --tb=short"
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I"]
+ignore = ["E501"]

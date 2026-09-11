@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: GitHub Discussions
+    url: https://github.com/dusmamud/youtube-music-downloader/discussions
+    about: Ask questions, share ideas, and discuss feature improvements with the community.
+  - name: Security Vulnerability Reporting
+    url: https://github.com/dusmamud/youtube-music-downloader/security/advisories
+    about: Privately report a security vulnerability or exploit.

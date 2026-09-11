@@ -26,16 +26,13 @@ jobs:
           python-version: ${{ matrix.python-version }}
           cache: "pip"
 
-      - name: Install FFmpeg (Ubuntu)
-        if: runner.os == 'Linux'
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y ffmpeg
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
 
-      - name: Install FFmpeg (Windows)
-        if: runner.os == 'Windows'
-        run: |
-          choco install ffmpeg-full --no-progress
+      - name: Set up FFmpeg
+        uses: FedericoCarboni/setup-ffmpeg@v3
 
       - name: Install dependencies
         run: |

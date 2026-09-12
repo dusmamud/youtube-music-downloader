@@ -3,8 +3,8 @@
 # 🎵 YouTube Music Studio Pro CLI
 
 <p align="center">
-  <strong>Next-Generation High-Fidelity YouTube Music Downloader & Interactive Audio Studio</strong><br />
-  <em>Cookie-Free Android Client Emulation • 4-in-1 Transcoding Engine • 1:1 Square Album Art • ID3v2.3 Tagger</em>
+  <strong>High-Fidelity Audio Archival Studio & Personal Media Backup Utility</strong><br />
+  <em>For Personal Content Backups & Creative Commons Media • 4-in-1 Transcoding Engine • 1:1 Square Album Art • Lossless Tagger</em>
 </p>
 
 <p align="center">
@@ -15,9 +15,12 @@
   <a href="LICENSE">
     <img src="https://img.shields.io/badge/License-MIT-success.svg" alt="License: MIT" />
   </a>
+  <a href="DISCLAIMER.md">
+    <img src="https://img.shields.io/badge/Notice-Personal%20Archival%20Only-orange.svg" alt="Legal Notice" />
+  </a>
   <img src="https://img.shields.io/badge/Platform-Windows%20%7C%20Linux%20%7C%20macOS-0078D6" alt="Platforms" />
   <img src="https://img.shields.io/badge/Audio-320kbps%20%7C%20FLAC%20%7C%20M4A%20%7C%20OPUS-ff69b4" alt="Audio Formats" />
-  <img src="https://img.shields.io/badge/Mobile%20Emulation-Android%20%2F%20iOS-orange" alt="Mobile Emulation" />
+  <img src="https://img.shields.io/badge/Mobile%20Profile-Android%20%2F%20iOS-orange" alt="Mobile Profile" />
   <img src="https://img.shields.io/badge/Code%20Style-Ruff%20%2F%20Black-000000.svg" alt="Code Style: Black" />
 </p>
 
@@ -28,7 +31,7 @@
   <a href="#-cli-cheat-sheet"><strong>CLI Recipes</strong></a> •
   <a href="#-architecture"><strong>Architecture</strong></a> •
   <a href="#-documentation-hub"><strong>Documentation</strong></a> •
-  <a href="#-troubleshooting"><strong>Troubleshooting</strong></a>
+  <a href="#-legal-disclaimer--terms-of-use"><strong>Legal Disclaimer</strong></a>
 </p>
 
 ---
@@ -38,6 +41,10 @@
 </p>
 
 </div>
+
+> [!IMPORTANT]
+> **LEGAL NOTICE & FAIR USE ARCHIVAL POLICY:**
+> This utility is designed strictly for **personal backup and archival of your own original content** or media licensed under permissive **Creative Commons / Public Domain** terms. Downloading copyrighted material without the explicit consent of the copyright owner is prohibited. This software does **not** bypass or decrypt DRM (Digital Rights Management) protections. Please review [**DISCLAIMER.md**](DISCLAIMER.md) before use.
 
 ## 🌟 Interactive Studio UI
 
@@ -53,8 +60,8 @@ Experience a terminal workflow inspired by modern developer tooling. No complex 
 │  ██████╔╝ ╚██████╔╝ ███████║                                                │
 │  ╚═════╝   ╚═════╝  ╚══════╝                                                │
 │                                                                             │
-│  🎵 DUS YouTube Music Studio Pro CLI | Android Phone Emulation              │
-│  (Cookie-Free) • 1:1 Square Art                                             │
+│  🎵 DUS YouTube Music Studio Pro CLI | Android Client Profile                │
+│  Personal Content Archival • 1:1 Square Art                                 │
 │  Output Destination: downloads/                                             │
 │                                                                             │
 └─────────────────────────────────────────────────────────────────────────────┘
@@ -62,9 +69,9 @@ Experience a terminal workflow inspired by modern developer tooling. No complex 
 Enter YouTube Music Track / Playlist URL: https://music.youtube.com/watch?v=...
 
 ╭─ Track Identified ──────────────────────────────────────────────────────────╮
-│ 🎵 Title    : Kesariya (From "Brahmastra")                                  │
-│ 🎤 Artist   : Arijit Singh, Pritam, Amitabh Bhattacharya                   │
-│ ⏱️ Duration : 4:28                                                          │
+│ 🎵 Title    : Creator Original Track (Independent Release)                  │
+│ 🎤 Artist   : Your Channel / Independent Artist                             │
+│ ⏱️ Duration : 3:45                                                          │
 │ 🔗 URL      : https://music.youtube.com/watch?v=...                         │
 ╰─────────────────────────────────────────────────────────────────────────────╯
 
@@ -85,10 +92,10 @@ Step 2: Choose Audio Quality / Bitrate
 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━┳━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━┓
 ┃ Filename                            ┃ Bitrate ┃ Filesize ┃ Cover Art              ┃
 ┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━╇━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━┩
-│ Arijit-Singh-Kesariya-320kbps.mp3    │  320k   │ 10.24 MB │ 1:1 Square (1200x1200) │
-│ Arijit-Singh-Kesariya-256kbps.mp3    │  256k   │  8.19 MB │ 1:1 Square (1200x1200) │
-│ Arijit-Singh-Kesariya-192kbps.mp3    │  192k   │  6.15 MB │ 1:1 Square (1200x1200) │
-│ Arijit-Singh-Kesariya-128kbps.mp3    │  128k   │  4.10 MB │ 1:1 Square (1200x1200) │
+│ Creator-Original-Song-320kbps.mp3   │  320k   │  8.60 MB │ 1:1 Square (1200x1200) │
+│ Creator-Original-Song-256kbps.mp3   │  256k   │  6.88 MB │ 1:1 Square (1200x1200) │
+│ Creator-Original-Song-192kbps.mp3   │  192k   │  5.16 MB │ 1:1 Square (1200x1200) │
+│ Creator-Original-Song-128kbps.mp3   │  128k   │  3.44 MB │ 1:1 Square (1200x1200) │
 └─────────────────────────────────────┴─────────┴──────────┴────────────────────────┘
 ```
 
@@ -98,11 +105,11 @@ Step 2: Choose Audio Quality / Bitrate
 
 | Feature | Description |
 |---|---|
-| 📱 **Cookie-Free Android Emulation** | Emulates native Android InnerTube API requests (Google Pixel 8 Pro, Galaxy S24 Ultra, OnePlus 12). Completely bypasses desktop web bot-checks (`Sign in to confirm you're not a bot`). |
-| ⚡ **4-in-1 Transcoding Engine** | Downloads pristine raw audio from YouTube **only once** and transcodes into `320k`, `256k`, `192k`, and `128k` locally via FFmpeg. Eliminates 75% of bandwidth and prevents 429 rate limits. |
-| 🖼️ **1:1 Square Album Artwork** | Built-in Pillow crop pipeline transforms distorted 16:9 video thumbnails into clean, high-resolution 1:1 square cover art (up to 1200x1200px) with ID3v2.3 tags. |
-| 🍪 **Multi-Browser & Cookie Fallback** | Easily switch between **Firefox**, **Chrome**, **Edge**, **Brave**, or custom Netscape `cookies.txt` for private, unlisted, or age-gated playlists. |
-| 🛡️ **Node.js Challenge Sandbox** | Integrates local Node.js runtime to execute YouTube's JavaScript n-sig challenge solving algorithms without breaking. |
+| 📱 **High-Reliability Android Profile** | Emulates standard Android InnerTube API client headers (Google Pixel 8 Pro, Galaxy S24 Ultra, OnePlus 12) for high request reliability without requiring browser sessions. |
+| ⚡ **4-in-1 Transcoding Engine** | Downloads raw audio **only once** and transcodes into `320k`, `256k`, `192k`, and `128k` locally via FFmpeg. Eliminates 75% of bandwidth and avoids rate limits. |
+| 🖼️ **1:1 Square Album Artwork** | Built-in Pillow crop pipeline transforms 16:9 video thumbnails into clean, high-resolution 1:1 square cover art (up to 1200x1200px) with ID3v2.3 tags. |
+| 🍪 **Multi-Browser & Cookie Fallback** | Easily switch between **Firefox**, **Chrome**, **Edge**, **Brave**, or custom Netscape `cookies.txt` for personal unlisted or private playlists. |
+| 🛡️ **Node.js Signature Engine** | Integrates local Node.js runtime to execute open-source client challenge verification scripts locally. |
 | 🎧 **Full Codec Support** | Native stream copy and transcoding to **MP3** (320k), **M4A / AAC**, **FLAC** (Lossless), and **OPUS** (~141k high-efficiency). |
 | 🛑 **Graceful Cancellation** | Pressing `Ctrl + C` cleanly removes `.part` and `.ytdl` temp files and exits immediately with zero tracebacks. |
 | 🧪 **Zero Contamination Testing** | Isolated test sandbox with automated teardown cleanup. Tested on Python 3.10, 3.11, and 3.12. |
@@ -151,36 +158,36 @@ yt-music-dl
 
 For automated scripts, batch jobs, and command-line power users:
 
-### 1. Basic Single Song Download (Cookie-Free Android Mode)
+### 1. Basic Single Song Download (Android Client Mode)
 ```powershell
-python main.py "https://music.youtube.com/watch?v=dQw4w9WgXcQ"
+python main.py "https://music.youtube.com/watch?v=YOUR_OWN_TRACK_ID"
 ```
 
 ### 2. 4-in-1 Multi-Bitrate Download (`320k` + `256k` + `192k` + `128k`)
 ```powershell
-python main.py "https://music.youtube.com/watch?v=dQw4w9WgXcQ" -m
+python main.py "https://music.youtube.com/watch?v=YOUR_OWN_TRACK_ID" -m
 ```
 
 ### 3. Studio Quality Lossless FLAC or Native OPUS
 ```powershell
 # Lossless Studio PCM FLAC
-python main.py "https://music.youtube.com/watch?v=dQw4w9WgXcQ" -f flac
+python main.py "https://music.youtube.com/watch?v=YOUR_OWN_TRACK_ID" -f flac
 
 # Native Lightweight OPUS (~141 kbps)
-python main.py "https://music.youtube.com/watch?v=dQw4w9WgXcQ" -f opus
+python main.py "https://music.youtube.com/watch?v=YOUR_OWN_TRACK_ID" -f opus
 ```
 
 ### 4. Batch Download Entire Playlists or Albums
 ```powershell
-python main.py "https://music.youtube.com/playlist?list=PLrAl5G2nN56q..." --batch -f mp3 -q 320k
+python main.py "https://music.youtube.com/playlist?list=YOUR_PLAYLIST_ID" --batch -f mp3 -q 320k
 ```
 
 ### 5. Inspect Stream Formats (`-F`)
 ```powershell
-python main.py "https://music.youtube.com/watch?v=dQw4w9WgXcQ" -F
+python main.py "https://music.youtube.com/watch?v=YOUR_OWN_TRACK_ID" -F
 ```
 
-### 6. Authenticate with Browser Cookies (For Private Playlists)
+### 6. Authenticate with Browser Cookies (For Your Private Playlists)
 ```powershell
 # Using Firefox (Recommended on Windows)
 python main.py "URL" --browser firefox
@@ -203,7 +210,7 @@ python main.py "URL" -n formal
 
 ### 8. Dry-Run Extraction Simulation (Zero Disk Writes)
 ```powershell
-python main.py "https://music.youtube.com/watch?v=dQw4w9WgXcQ" --dry-run
+python main.py "https://music.youtube.com/watch?v=YOUR_OWN_TRACK_ID" --dry-run
 ```
 
 ---
@@ -325,6 +332,17 @@ python test_download.py
 | **Age-Restricted Track** | YouTube requires authenticated account session. | Pass `--browser firefox` or `--cookies cookies.txt`. |
 
 > 💡 For complete diagnostics and advanced scenarios, see [**docs/TROUBLESHOOTING.md**](docs/TROUBLESHOOTING.md).
+
+---
+
+## ⚖️ Legal Disclaimer & Terms of Use
+
+This software is strictly intended as a personal media backup utility and educational tool for:
+1. **Content Creators**: Archiving your own original musical tracks and audio previously uploaded to YouTube.
+2. **Public Domain & Creative Commons**: Downloading tracks that are explicitly released under open licenses (CC-BY, CC0, Public Domain).
+3. **Fair Use Research**: Transformative educational analysis under Section 107 of the U.S. Copyright Act.
+
+**Non-Circumvention Statement**: This software does **NOT** circumvent or decrypt DRM technologies (Widevine, FairPlay). The authors and contributors do not host or distribute copyrighted media and assume zero liability for user actions. Please read the full [**DISCLAIMER.md**](DISCLAIMER.md).
 
 ---
 

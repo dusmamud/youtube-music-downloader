@@ -13,8 +13,9 @@ def print_banner():
         "[bold magenta]██║  ██║ ██║   ██║ ╚════██║[/bold magenta]\n"
         "[bold white]██████╔╝ ╚██████╔╝ ███████║[/bold white]\n"
         "[bold white]╚═════╝   ╚═════╝  ╚══════╝[/bold white]\n\n"
-        "[bold yellow]🎵 DUS YouTube Music Studio Pro CLI[/bold yellow] | [dim]Android Phone Emulation (Cookie-Free) • 1:1 Square Art[/dim]\n"
-        f"[dim]Output Destination: {config.OUTPUT_DIR}[/dim]"
+        "[bold yellow]🎵 DUS YouTube Music Studio Pro CLI[/bold yellow] | [dim]Android Client Profile • 1:1 Square Art[/dim]\n"
+        f"[dim]Output Destination: {config.OUTPUT_DIR}[/dim]\n"
+        "[dim yellow]⚖️  Notice: For personal archival of your own content & CC media only.[/dim yellow]"
     )
     console.print(Panel(banner_text, border_style="cyan", padding=(1, 2)))
 

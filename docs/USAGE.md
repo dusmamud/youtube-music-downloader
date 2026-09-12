@@ -112,38 +112,38 @@ python main.py [URL] [OPTIONS]
 
 ### A. High-Quality 320kbps MP3
 ```powershell
-python main.py "https://music.youtube.com/watch?v=dQw4w9WgXcQ" -f mp3 -q 320k
+python main.py "https://music.youtube.com/watch?v=YOUR_OWN_TRACK_ID" -f mp3 -q 320k
 ```
 
 ### B. 4-in-1 Multi-Bitrate Batch Generation
 Generates `320kbps`, `256kbps`, `192kbps`, and `128kbps` versions in one network request:
 ```powershell
-python main.py "https://music.youtube.com/watch?v=dQw4w9WgXcQ" -m
+python main.py "https://music.youtube.com/watch?v=YOUR_OWN_TRACK_ID" -m
 ```
 Custom bitrates:
 ```powershell
-python main.py "https://music.youtube.com/watch?v=dQw4w9WgXcQ" -m --qualities "320k,128k,64k"
+python main.py "https://music.youtube.com/watch?v=YOUR_OWN_TRACK_ID" -m --qualities "320k,128k,64k"
 ```
 
 ### C. Lossless FLAC or Studio OPUS
 ```powershell
 # FLAC Uncompressed
-python main.py "https://music.youtube.com/watch?v=dQw4w9WgXcQ" -f flac
+python main.py "https://music.youtube.com/watch?v=YOUR_OWN_TRACK_ID" -f flac
 
 # High-Efficiency Native OPUS (~141kbps)
-python main.py "https://music.youtube.com/watch?v=dQw4w9WgXcQ" -f opus
+python main.py "https://music.youtube.com/watch?v=YOUR_OWN_TRACK_ID" -f opus
 ```
 
 ### D. Downloading Entire Playlists / Albums
 Add the `-b` (`--batch`) flag:
 ```powershell
-python main.py "https://music.youtube.com/playlist?list=PLrAl5G2nN56q..." -b -f mp3 -q 320k
+python main.py "https://music.youtube.com/playlist?list=YOUR_PLAYLIST_ID" -b -f mp3 -q 320k
 ```
 
 ### E. Inspecting Available Audio Streams (`-F`)
 Print available audio streams, formats, codecs, bitrates, sample rates, and approximate sizes:
 ```powershell
-python main.py "https://music.youtube.com/watch?v=dQw4w9WgXcQ" -F
+python main.py "https://music.youtube.com/watch?v=YOUR_OWN_TRACK_ID" -F
 ```
 
 Output:
@@ -185,8 +185,8 @@ You can customize the naming pattern using `-n` or `--naming-style`:
 
 | Scheme | Example Output | Notes |
 |---|---|---|
-| `clean` *(Default)* | `Arijit-Singh-Kesariya-320kbps.mp3` | Cross-platform safe, no spaces, hyphens for separators. Ideal for media servers, car stereos, and Linux systems. |
-| `formal` | `Arijit Singh - Kesariya (320kbps).mp3` | Traditional music player display format with clean spaces and parentheses. |
+| `clean` *(Default)* | `Artist-Track-Title-320kbps.mp3` | Cross-platform safe, no spaces, hyphens for separators. Ideal for media servers, car stereos, and Linux systems. |
+| `formal` | `Artist - Track Title (320kbps).mp3` | Traditional music player display format with clean spaces and parentheses. |
 
 ---
 
@@ -202,11 +202,11 @@ downloader = YtMusicDownloader(
     output_dir="./my_downloads",
     audio_format="mp3",
     quality="320k",
-    auth_mode="android",  # Cookie-free Android phone emulation
+    auth_mode="android",  # Android InnerTube client profile
 )
 
 # Download single track
-url = "https://music.youtube.com/watch?v=dQw4w9WgXcQ"
+url = "https://music.youtube.com/watch?v=YOUR_OWN_TRACK_ID"
 success = downloader.download(url, naming_style="clean")
 
 # Or download 4-in-1 multi-bitrate package

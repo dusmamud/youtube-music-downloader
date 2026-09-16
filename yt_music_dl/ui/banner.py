@@ -3,6 +3,7 @@ from rich.table import Table
 
 from yt_music_dl import config
 from yt_music_dl.utils.system import console
+from yt_music_dl.utils.updater import check_for_updates, display_update_notification
 
 
 def print_banner(output_dir: str = None):
@@ -23,6 +24,11 @@ def print_banner(output_dir: str = None):
         "[dim yellow]⚖️  Notice: For personal archival of your own content & CC media only.[/dim yellow]"
     )
     console.print(Panel(banner_text, border_style="cyan", padding=(1, 2)))
+
+    # Quick fail-safe PyPI update check
+    new_version = check_for_updates()
+    if new_version:
+        display_update_notification(new_version)
 
 
 def display_preview_card(info: dict):

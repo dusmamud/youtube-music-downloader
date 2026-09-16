@@ -24,7 +24,7 @@ from yt_music_dl.utils.system import (
     handle_cookie_error_suggestion,
 )
 from yt_music_dl.utils.formatters import format_filename
-from yt_music_dl.core.device_profiler import get_random_android_device
+from yt_music_dl.core.device_profiler import get_random_android_device, get_device_headers
 from yt_music_dl.core.metadata import (
     get_square_cover_bytes,
     apply_perfect_metadata,
@@ -208,9 +208,7 @@ class YtMusicDownloader:
                     "player_client": self.player_clients,
                 }
             }
-            ydl_opts["http_headers"] = {
-                "User-Agent": self.device_profile["user_agent"],
-            }
+            ydl_opts["http_headers"] = get_device_headers(self.device_profile)
         elif self.auth_mode == "browser":
             b_name = self.browser or config.DEFAULT_BROWSER
             ydl_opts["cookiesfrombrowser"] = (b_name,)
@@ -410,9 +408,7 @@ class YtMusicDownloader:
                     "player_client": self.player_clients,
                 }
             }
-            ydl_opts["http_headers"] = {
-                "User-Agent": self.device_profile["user_agent"],
-            }
+            ydl_opts["http_headers"] = get_device_headers(self.device_profile)
         elif self.auth_mode == "browser":
             b_name = self.browser or config.DEFAULT_BROWSER
             ydl_opts["cookiesfrombrowser"] = (b_name,)

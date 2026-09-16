@@ -12,7 +12,7 @@ from yt_music_dl.utils.system import (
     check_dependencies,
     log_warning,
 )
-from yt_music_dl.core.device_profiler import get_random_android_device
+from yt_music_dl.core.device_profiler import get_random_android_device, get_device_headers
 from yt_music_dl.core.downloader import YtMusicDownloader
 from yt_music_dl.ui.banner import print_banner, display_preview_card
 
@@ -29,7 +29,7 @@ def fetch_track_preview(url: str, auth_mode: str = "android", browser: str = Non
     }
     if auth_mode == "android":
         ydl_opts["extractor_args"] = {"youtube": {"player_client": ["android", "ios"]}}
-        ydl_opts["http_headers"] = {"User-Agent": device["user_agent"]}
+        ydl_opts["http_headers"] = get_device_headers(device)
     elif auth_mode == "browser" and browser:
         ydl_opts["cookiesfrombrowser"] = (browser,)
     elif auth_mode == "cookiefile" and cookiefile:

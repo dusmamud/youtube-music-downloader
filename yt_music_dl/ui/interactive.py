@@ -43,13 +43,17 @@ def fetch_track_preview(url: str, auth_mode: str = "android", browser: str = Non
         return {}
 
 
-def _interactive_loop():
-    print_banner()
+def _interactive_loop(output_dir: str = None):
+    active_output = output_dir or config.OUTPUT_DIR
+    print_banner(output_dir=active_output)
+
+    # Safe divider width for mobile screens (Termux)
+    sep_len = min(console.width or 50, 50)
 
     while True:
-        console.print("\n" + "─" * 70, style="dim")
+        console.print("\n" + "─" * sep_len, style="dim")
         url = Prompt.ask(
-            "[bold cyan]Enter YouTube Music Track / Playlist URL[/bold cyan] (or [bold red]q[/bold red] to quit)"
+            "[bold cyan]YouTube URL[/bold cyan] ([bold red]q[/bold red] to quit)"
         ).strip()
 
         if url.lower() in ("q", "quit", "exit"):
@@ -222,6 +226,7 @@ def _interactive_loop():
 
         # 5. Perform Download
         downloader = YtMusicDownloader(
+            output_dir=active_output,
             audio_format=chosen_format,
             quality=chosen_single_quality,
             auth_mode=chosen_auth_mode,
@@ -229,7 +234,7 @@ def _interactive_loop():
             cookiefile=chosen_cookiefile,
         )
 
-        console.print("\n" + "─" * 70, style="dim")
+        console.print("\n" + "─" * sep_len, style="dim")
         if is_multi_quality:
             results = downloader.download_multi_quality(
                 url,
@@ -267,13 +272,13 @@ def _interactive_loop():
             break
 
 
-def run_interactive_session():
+def run_interactive_session(output_dir: str = None):
     """Main interactive REPL loop with graceful exit on Ctrl+C."""
     if not check_dependencies():
         sys.exit(1)
 
     try:
-        _interactive_loop()
+        _interactive_loop(output_dir=output_dir)
     except (KeyboardInterrupt, EOFError):
         console.print("\n\n[bold yellow]Operation cancelled by user. Goodbye![/bold yellow] 👋\n")
         sys.exit(0)

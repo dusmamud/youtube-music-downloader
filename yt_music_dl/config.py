@@ -5,13 +5,59 @@ from pathlib import Path
 PACKAGE_DIR = Path(__file__).resolve().parent
 PROJECT_ROOT = PACKAGE_DIR.parent
 
-# If running inside cloned repository, use project root downloads; otherwise use current working directory
-if (PROJECT_ROOT / "pyproject.toml").exists():
-    DEFAULT_DOWNLOAD_DIR = PROJECT_ROOT / "downloads"
-else:
-    DEFAULT_DOWNLOAD_DIR = Path.cwd() / "downloads"
 
-OUTPUT_DIR = os.getenv("YT_DOWNLOAD_DIR", str(DEFAULT_DOWNLOAD_DIR))
+def is_termux_environment() -> bool:
+    """Detects if the application is running inside an Android Termux environment."""
+    if os.getenv("TERMUX_VERSION"):
+        return True
+    prefix = os.getenv("PREFIX", "")
+    if "com.termux" in prefix:
+        return True
+    if Path("/data/data/com.termux").exists():
+        return True
+    return False
+
+
+def get_default_download_dir() -> Path:
+    """Intelligently detects the most suitable download directory."""
+    env_dir = os.getenv("YT_DOWNLOAD_DIR")
+    if env_dir:
+        return Path(env_dir)
+
+    # 1. Android Termux Auto-Detection:
+    # Prefer phone's shared Downloads folder so media is immediately visible in music players
+    if is_termux_environment():
+        termux_storage_download = Path.home() / "storage" / "downloads"
+        if termux_storage_download.exists() and os.access(termux_storage_download, os.W_OK):
+            return termux_storage_download
+
+        android_sdcard_download = Path("/sdcard/Download")
+        if android_sdcard_download.exists() and os.access(android_sdcard_download, os.W_OK):
+            return android_sdcard_download
+
+        android_emulated_download = Path("/storage/emulated/0/Download")
+        if android_emulated_download.exists() and os.access(android_emulated_download, os.W_OK):
+            return android_emulated_download
+
+    # 2. Desktop / Local CWD:
+    # If running from cloned source repo, can use repo downloads, else current working directory
+    if (PROJECT_ROOT / "pyproject.toml").exists() and Path.cwd() == PROJECT_ROOT:
+        return PROJECT_ROOT / "downloads"
+
+    return Path.cwd() / "downloads"
+
+
+DEFAULT_DOWNLOAD_DIR = get_default_download_dir()
+OUTPUT_DIR = str(DEFAULT_DOWNLOAD_DIR)
+
+
+def set_output_dir(custom_path: str):
+    """Dynamically updates the active output directory."""
+    global OUTPUT_DIR
+    if custom_path:
+        # Expand user path (e.g. ~/storage/music)
+        resolved = Path(custom_path).expanduser()
+        OUTPUT_DIR = str(resolved)
 
 # Browser & Auth Modes
 # Modes: 'android' (Cookie-free mobile phone emulation, default), 'browser' (load from browser), 'cookiefile', 'none'

@@ -7,7 +7,7 @@ from yt_music_dl.core.downloader import YtMusicDownloader
 from yt_music_dl.ui.interactive import run_interactive_session
 from yt_music_dl.cli import main
 
-__version__ = "1.1.0"
+__version__ = "1.1.5"
 
 __all__ = [
     "YtMusicDownloader",

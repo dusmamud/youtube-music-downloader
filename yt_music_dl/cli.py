@@ -119,7 +119,7 @@ def create_parser() -> argparse.ArgumentParser:
     parser.add_argument(
         "-o",
         "--output",
-        default=config.OUTPUT_DIR,
+        default=None,
         help=f"Directory to save downloaded files (default: {config.OUTPUT_DIR})",
     )
 
@@ -136,8 +136,11 @@ def main():
         parser = create_parser()
         args = parser.parse_args()
 
+        if args.output:
+            config.set_output_dir(args.output)
+
         if args.interactive or not args.url:
-            run_interactive_session()
+            run_interactive_session(output_dir=args.output)
             return
 
         # Verify runtime dependencies (yt-dlp, ffmpeg, node)

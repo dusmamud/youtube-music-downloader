@@ -136,15 +136,22 @@ brew install python@3.11 ffmpeg node
 
 # Linux (Ubuntu / Debian)
 sudo apt update && sudo apt install -y python3 python3-pip ffmpeg nodejs
+
+# Android (Termux App)
+pkg update && pkg install -y python ffmpeg nodejs clang libjpeg-turbo
+termux-setup-storage
 ```
 
 ### 2. Installation
 
 #### 📦 Option A: Install from PyPI (Recommended & Easiest)
-Install globally in one command directly from PyPI:
+Install globally in one command directly from PyPI (Windows, macOS, Linux, or Android Termux):
 ```bash
 pip install --upgrade dus-yt-music-dl
 ```
+
+> [!TIP]
+> **Android Termux Users:** `dus-yt-music-dl` automatically detects your phone's storage (`/sdcard/Download` or `~/storage/downloads`). Downloaded songs immediately appear in your favorite music player without manual file transfers!
 
 #### 🛠️ Option B: Install from Source (Developer Mode)
 ```bash

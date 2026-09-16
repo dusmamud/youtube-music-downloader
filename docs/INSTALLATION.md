@@ -115,6 +115,23 @@ sudo dnf install -y python3 python3-pip ffmpeg nodejs
 sudo pacman -Syu --noconfirm python python-pip ffmpeg nodejs
 ```
 
+### 4. Android (Termux App)
+To run the full studio on your Android phone using Termux:
+
+```bash
+# 1. Update Termux packages and install prerequisites
+pkg update && pkg install -y python ffmpeg nodejs clang libjpeg-turbo
+
+# 2. Grant Termux access to phone storage (Tap 'Allow' on the Android prompt)
+termux-setup-storage
+
+# 3. Install the package via pip
+pip install --upgrade dus-yt-music-dl
+```
+
+> [!TIP]
+> On Android, `dus-yt-music-dl` automatically detects your phone's main Downloads directory (`/sdcard/Download` or `~/storage/downloads`). Downloaded songs will immediately show up in your phone's native music player (Samsung Music, Poweramp, etc.) without having to run any manual move or copy commands!
+
 ---
 
 ## Project Installation

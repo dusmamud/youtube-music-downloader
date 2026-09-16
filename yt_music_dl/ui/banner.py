@@ -5,7 +5,12 @@ from yt_music_dl import config
 from yt_music_dl.utils.system import console
 
 
-def print_banner():
+def print_banner(output_dir: str = None):
+    active_dir = output_dir or config.OUTPUT_DIR
+    storage_tag = ""
+    if config.is_termux_environment():
+        storage_tag = " [bold green]• Android Storage[/bold green]"
+
     banner_text = (
         "[bold cyan]██████╗  ██╗   ██╗ ███████╗[/bold cyan]\n"
         "[bold cyan]██╔══██╗ ██║   ██║ ██╔════╝[/bold cyan]\n"
@@ -14,7 +19,7 @@ def print_banner():
         "[bold white]██████╔╝ ╚██████╔╝ ███████║[/bold white]\n"
         "[bold white]╚═════╝   ╚═════╝  ╚══════╝[/bold white]\n\n"
         "[bold yellow]🎵 DUS YouTube Music Studio Pro CLI[/bold yellow] | [dim]Android Client Profile • 1:1 Square Art[/dim]\n"
-        f"[dim]Output Destination: {config.OUTPUT_DIR}[/dim]\n"
+        f"[dim]Output Destination: {active_dir}{storage_tag}[/dim]\n"
         "[dim yellow]⚖️  Notice: For personal archival of your own content & CC media only.[/dim yellow]"
     )
     console.print(Panel(banner_text, border_style="cyan", padding=(1, 2)))

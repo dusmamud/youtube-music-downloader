@@ -1,7 +1,13 @@
+import sys
 import json
 import unittest
+from pathlib import Path
 from unittest.mock import patch, MagicMock
-import io
+
+# Ensure project root is in sys.path
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
 
 from yt_music_dl.utils.updater import parse_version, check_for_updates, display_update_notification
 
@@ -45,7 +51,9 @@ class TestUpdater(unittest.TestCase):
         latest = check_for_updates()
         self.assertIsNone(latest)
 
-    def test_display_update_notification(self):
+    @patch("yt_music_dl.utils.updater.console.print")
+    def test_display_update_notification(self, mock_print):
         # Should execute cleanly without throwing
         display_update_notification("1.2.0")
+        self.assertTrue(mock_print.called)
         display_update_notification(None)

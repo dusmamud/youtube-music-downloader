@@ -47,7 +47,7 @@ def display_update_notification(latest_version: str):
 
     update_msg = (
         f"[bold yellow]🔔 Update Available![/bold yellow] "
-        f"[dim white]{__version__}[/dim white] → [bold green]{latest_version}[/bold green]\n"
+        f"[dim white]{__version__}[/dim white] -> [bold green]{latest_version}[/bold green]\n"
         f"[dim]Run to upgrade:[/dim] [bold cyan]pip install --upgrade dus-yt-music-dl[/bold cyan]"
     )
     console.print(

@@ -54,7 +54,7 @@
 
 ## 🌟 Interactive Studio UI
 
-Experience a terminal workflow inspired by modern developer tooling. No complex CLI flags required — simply run `python main.py` or `yt-music-dl`:
+Experience a terminal workflow inspired by modern developer tooling. No complex CLI flags required — simply run `python main.py` or `dus-yt-music-dl` (or `yt-music-dl`):
 
 ```text
 ┌─────────────────────────────────────────────────────────────────────────────┐
@@ -160,7 +160,10 @@ pip install -e .
 ### 3. Run Studio Dashboard
 ```powershell
 # Run the global CLI tool directly from any terminal
-yt-music-dl
+dus-yt-music-dl
+
+# (yt-music-dl alias also supported)
+# yt-music-dl
 
 # Or run via local repository script
 python main.py

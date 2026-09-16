@@ -27,6 +27,7 @@ Repository = "https://github.com/dusmamud/youtube-music-downloader.git"
 Issues = "https://github.com/dusmamud/youtube-music-downloader/issues"
 
 [project.scripts]
+dus-yt-music-dl = "yt_music_dl.cli:main"
 yt-music-dl = "yt_music_dl.cli:main"
 
 [tool.setuptools.packages.find]

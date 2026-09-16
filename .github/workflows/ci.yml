@@ -31,7 +31,12 @@ jobs:
         with:
           node-version: "20"
 
-      - name: Set up FFmpeg
+      - name: Set up FFmpeg (Linux)
+        if: runner.os == 'Linux'
+        run: sudo apt-get update && sudo apt-get install -y ffmpeg
+
+      - name: Set up FFmpeg (Windows)
+        if: runner.os == 'Windows'
         uses: FedericoCarboni/setup-ffmpeg@v3
 
       - name: Install dependencies

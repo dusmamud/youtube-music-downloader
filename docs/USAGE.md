@@ -31,8 +31,8 @@ Launch the interactive studio dashboard without any parameters:
 
 ```powershell
 python main.py
-# Or if installed via pip install -e .
-yt-music-dl
+# Or if installed via pip (dus-yt-music-dl or yt-music-dl)
+dus-yt-music-dl
 ```
 
 ---

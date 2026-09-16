@@ -127,7 +127,7 @@ Install the package directly into your system or virtual environment in a single
 pip install --upgrade dus-yt-music-dl
 ```
 
-This immediately registers the `yt-music-dl` global CLI command on your PATH.
+This immediately registers the `dus-yt-music-dl` (and `yt-music-dl`) global CLI command on your PATH.
 
 ---
 
@@ -179,13 +179,13 @@ Core dependencies installed:
 
 ### Global CLI Tool Registration
 
-To run `yt-music-dl` directly from any terminal window without typing `python main.py`:
+To run `dus-yt-music-dl` (or `yt-music-dl`) directly from any terminal window without typing `python main.py`:
 
 ```bash
 pip install -e .
 ```
 
-This installs the project in **editable mode** using `pyproject.toml`, creating the `yt-music-dl` binary entry point on your PATH.
+This installs the project in **editable mode** using `pyproject.toml`, creating the `dus-yt-music-dl` and `yt-music-dl` binary entry points on your PATH.
 
 ---
 

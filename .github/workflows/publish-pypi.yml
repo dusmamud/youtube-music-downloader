@@ -43,7 +43,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: pypi
-      url: https://pypi.org/p/yt-music-dl
+      url: https://pypi.org/p/dus-yt-music-dl
     permissions:
       id-token: write  # Mandatory for PyPI Trusted Publishing (OIDC)
 

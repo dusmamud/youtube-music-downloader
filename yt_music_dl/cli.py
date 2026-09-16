@@ -2,6 +2,7 @@ import sys
 import argparse
 
 from yt_music_dl import config
+from yt_music_dl.version import __version__
 from yt_music_dl.utils.system import check_dependencies, console
 from yt_music_dl.core.downloader import YtMusicDownloader
 from yt_music_dl.ui.interactive import run_interactive_session
@@ -11,6 +12,14 @@ def create_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         description="🎵 YouTube Music High-Quality Audio Downloader CLI & Interactive Studio",
         formatter_class=argparse.RawTextHelpFormatter,
+    )
+
+    parser.add_argument(
+        "-v",
+        "--version",
+        action="version",
+        version=f"dus-yt-music-dl {__version__}",
+        help="Show program's version number and exit",
     )
 
     parser.add_argument(

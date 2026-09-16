@@ -40,6 +40,11 @@ class TestYtMusicPackage(unittest.TestCase):
         """Test argument parsing for all required flags."""
         parser = create_parser()
 
+        # Version flag test
+        with self.assertRaises(SystemExit) as cm:
+            parser.parse_args(["--version"])
+        self.assertEqual(cm.exception.code, 0)
+
         # Format & quality test
         args = parser.parse_args(["https://music.youtube.com/watch?v=sample", "--format", "flac", "--quality", "best"])
         self.assertEqual(args.format, "flac")

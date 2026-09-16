@@ -11,6 +11,12 @@
   <a href="https://github.com/dusmamud/youtube-music-downloader/actions/workflows/ci.yml">
     <img src="https://github.com/dusmamud/youtube-music-downloader/actions/workflows/ci.yml/badge.svg" alt="CI Suite" />
   </a>
+  <a href="https://pypi.org/project/dus-yt-music-dl/">
+    <img src="https://img.shields.io/pypi/v/dus-yt-music-dl.svg?color=blue&logo=pypi&logoColor=white" alt="PyPI Version" />
+  </a>
+  <a href="https://pypi.org/project/dus-yt-music-dl/">
+    <img src="https://img.shields.io/pypi/dm/dus-yt-music-dl.svg?color=success" alt="PyPI Downloads" />
+  </a>
   <img src="https://img.shields.io/badge/Python-3.10%20%7C%203.11%20%7C%203.12-3776AB?logo=python&logoColor=white" alt="Python Versions" />
   <a href="LICENSE">
     <img src="https://img.shields.io/badge/License-MIT-success.svg" alt="License: MIT" />
@@ -132,24 +138,32 @@ brew install python@3.11 ffmpeg node
 sudo apt update && sudo apt install -y python3 python3-pip ffmpeg nodejs
 ```
 
-### 2. Clone & Install
+### 2. Installation
+
+#### 📦 Option A: Install from PyPI (Recommended & Easiest)
+Install globally in one command directly from PyPI:
+```bash
+pip install --upgrade dus-yt-music-dl
+```
+
+#### 🛠️ Option B: Install from Source (Developer Mode)
 ```bash
 # Clone the repository
 git clone https://github.com/dusmamud/youtube-music-downloader.git
 cd youtube-music-downloader
 
-# Install dependencies and register CLI command
+# Install dependencies and register CLI command in editable mode
 pip install -r requirements.txt
 pip install -e .
 ```
 
 ### 3. Run Studio Dashboard
 ```powershell
-# Start interactive studio
-python main.py
-
-# Or use global CLI command anywhere
+# Run the global CLI tool directly from any terminal
 yt-music-dl
+
+# Or run via local repository script
+python main.py
 ```
 
 ---

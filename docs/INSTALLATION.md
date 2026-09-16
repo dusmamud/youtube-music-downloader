@@ -119,13 +119,27 @@ sudo pacman -Syu --noconfirm python python-pip ffmpeg nodejs
 
 ## Project Installation
 
-### Clone Repository
+### Method 1: Install via PyPI (Recommended & Easiest)
+
+Install the package directly into your system or virtual environment in a single command:
+
+```bash
+pip install --upgrade dus-yt-music-dl
+```
+
+This immediately registers the `yt-music-dl` global CLI command on your PATH.
+
+---
+
+### Method 2: Install from Source (Developer Setup)
+
+#### 1. Clone Repository
 ```bash
 git clone https://github.com/dusmamud/youtube-music-downloader.git
 cd youtube-music-downloader
 ```
 
-### Virtual Environment (Recommended)
+#### 2. Virtual Environment (Recommended)
 
 Using a virtual environment prevents conflicting dependencies with other Python tools on your system:
 
@@ -159,6 +173,7 @@ Core dependencies installed:
 - `mutagen` (ID3v2 metadata & album art tagger)
 - `Pillow` (1:1 square cover art processing)
 - `requests` (Network helper)
+- `brotli` (High-performance stream decompression engine)
 
 ---
 

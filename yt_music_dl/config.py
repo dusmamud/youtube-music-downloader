@@ -4,7 +4,14 @@ from pathlib import Path
 # Base Paths
 PACKAGE_DIR = Path(__file__).resolve().parent
 PROJECT_ROOT = PACKAGE_DIR.parent
-OUTPUT_DIR = os.getenv("YT_DOWNLOAD_DIR", str(PROJECT_ROOT / "downloads"))
+
+# If running inside cloned repository, use project root downloads; otherwise use current working directory
+if (PROJECT_ROOT / "pyproject.toml").exists():
+    DEFAULT_DOWNLOAD_DIR = PROJECT_ROOT / "downloads"
+else:
+    DEFAULT_DOWNLOAD_DIR = Path.cwd() / "downloads"
+
+OUTPUT_DIR = os.getenv("YT_DOWNLOAD_DIR", str(DEFAULT_DOWNLOAD_DIR))
 
 # Browser & Auth Modes
 # Modes: 'android' (Cookie-free mobile phone emulation, default), 'browser' (load from browser), 'cookiefile', 'none'

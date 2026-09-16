@@ -168,6 +168,28 @@ def apply_perfect_metadata(audio_file: Path, info: Dict[str, Any], cover_bytes: 
                 flac.add_picture(pic)
             flac.save()
 
+        elif ext in (".opus", ".ogg"):
+            import base64
+            from mutagen.oggopus import OggOpus
+            from mutagen.flac import Picture
+
+            opus = OggOpus(str(audio_file))
+            opus["title"] = [title]
+            opus["artist"] = [artist]
+            opus["albumartist"] = [album_artist]
+            opus["album"] = [album]
+            opus["genre"] = [genre]
+            if year:
+                opus["date"] = [str(year)]
+            if cover_bytes:
+                pic = Picture()
+                pic.type = 3
+                pic.mime = "image/jpeg"
+                pic.desc = "Cover"
+                pic.data = cover_bytes
+                opus["metadata_block_picture"] = [base64.b64encode(pic.write()).decode("ascii")]
+            opus.save()
+
     except Exception as e:
         log_warning(f"Could not apply extended metadata: {e}")
 

@@ -45,5 +45,6 @@ def cleanup_test_files(target_dir: Optional[Union[str, Path]] = None, pattern_pr
         except Exception:
             pass
 
-    print("[CLEANUP] All test files removed")
+    if removed_count > 0:
+        print(f"[CLEANUP] {removed_count} test file(s) removed")
     return removed_count

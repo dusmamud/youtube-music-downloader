@@ -19,32 +19,63 @@ def is_termux_environment() -> bool:
 
 
 def get_default_download_dir() -> Path:
-    """Intelligently detects the most suitable download directory."""
+    """
+    Intelligently detects the most suitable download directory:
+    1. If user passed custom env var YT_DOWNLOAD_DIR, use it.
+    2. If user is in a custom working directory (NOT Termux home ~):
+       - If CWD is already a Download/Music folder (e.g. ~/storage/downloads or /sdcard/Music), use CWD.
+       - Otherwise (e.g. E:\dusmamud), use CWD / "downloads".
+    3. If user is in Termux home (~):
+       - Route directly to phone's canonical shared storage (/storage/emulated/0/Download or /sdcard/Download)
+         so files are public and visible in native music players.
+    """
     env_dir = os.getenv("YT_DOWNLOAD_DIR")
     if env_dir:
-        return Path(env_dir)
+        return Path(env_dir).expanduser().resolve()
 
-    # 1. Android Termux Auto-Detection:
-    # Prefer phone's shared Downloads folder so media is immediately visible in music players
+    cwd = Path.cwd().resolve()
+
+    # If inside Termux environment
     if is_termux_environment():
-        termux_storage_download = Path.home() / "storage" / "downloads"
-        if termux_storage_download.exists() and os.access(termux_storage_download, os.W_OK):
-            return termux_storage_download
+        termux_home = Path.home().resolve()
+        
+        # Check if user has navigated to a specific folder outside of Termux private ~ home
+        # e.g., cd ~/storage/downloads, cd /sdcard/Music, cd /storage/emulated/0/Download
+        is_in_termux_home = (cwd == termux_home or str(cwd).startswith(str(termux_home / ".cache")))
+        
+        if not is_in_termux_home:
+            # User specifically chose this working directory!
+            # If current directory is already a Download/Music folder, save directly in it
+            if cwd.name.lower() in ("download", "downloads", "music"):
+                return cwd
+            return cwd / "downloads"
 
-        android_sdcard_download = Path("/sdcard/Download")
-        if android_sdcard_download.exists() and os.access(android_sdcard_download, os.W_OK):
-            return android_sdcard_download
+        # User is at Termux home root (~)
+        # Auto-route to real Android public storage so files appear in phone's Music player
+        canonical_candidates = [
+            Path("/storage/emulated/0/Download"),
+            Path("/sdcard/Download"),
+            (Path.home() / "storage" / "downloads").resolve(),
+            (Path.home() / "storage" / "shared" / "Download").resolve(),
+        ]
+        for candidate in canonical_candidates:
+            if candidate.exists() and os.access(candidate, os.W_OK):
+                return candidate
 
-        android_emulated_download = Path("/storage/emulated/0/Download")
-        if android_emulated_download.exists() and os.access(android_emulated_download, os.W_OK):
-            return android_emulated_download
+        # If shared storage not granted, fallback to CWD / downloads
+        return cwd / "downloads"
 
-    # 2. Desktop / Local CWD:
-    # If running from cloned source repo, can use repo downloads, else current working directory
-    if (PROJECT_ROOT / "pyproject.toml").exists() and Path.cwd() == PROJECT_ROOT:
+    # Standard Desktop / PC (Windows, macOS, Linux)
+    # If in cloned source repo root, use repo downloads
+    if (PROJECT_ROOT / "pyproject.toml").exists() and cwd == PROJECT_ROOT.resolve():
         return PROJECT_ROOT / "downloads"
 
-    return Path.cwd() / "downloads"
+    # If current directory is already named 'downloads' or 'download', save directly in it
+    if cwd.name.lower() in ("download", "downloads", "music"):
+        return cwd
+
+    # In any other folder (e.g. E:\dusmamud), create a downloads subfolder
+    return cwd / "downloads"
 
 
 DEFAULT_DOWNLOAD_DIR = get_default_download_dir()

@@ -32,6 +32,17 @@ from yt_music_dl.core.metadata import (
 )
 
 
+def trigger_android_media_scan(file_path: Path):
+    """Notifies Android system media scanner so the track immediately appears in music players."""
+    import shutil
+    import subprocess
+    if shutil.which("termux-media-scan"):
+        try:
+            subprocess.run(["termux-media-scan", str(file_path)], capture_output=True, timeout=5)
+        except Exception:
+            pass
+
+
 class YtMusicDownloader:
     def __init__(
         self,
@@ -326,6 +337,7 @@ class YtMusicDownloader:
                             f"Successfully processed: [bold white]{target_audio_file.name}[/bold white] "
                             f"([green]{filesize_mb:.2f} MB[/green], 1:1 Album Art embedded)"
                         )
+                        trigger_android_media_scan(target_audio_file)
                     else:
                         log_success(f"Successfully processed: [bold white]{artist} - {title}[/bold white]")
 
@@ -479,6 +491,7 @@ class YtMusicDownloader:
                 "quality": f"{q_clean}kbps",
             })
             log_success(f"Created: [bold white]{final_filename}[/bold white] ({size_mb:.2f} MB)")
+            trigger_android_media_scan(dest_file)
 
         # Clean up temp stream cache
         try:

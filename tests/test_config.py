@@ -36,3 +36,20 @@ class TestConfigPathDetection(unittest.TestCase):
         parser = create_parser()
         args = parser.parse_args(["-o", "/tmp/my_music"])
         self.assertEqual(args.output, "/tmp/my_music")
+
+    @patch("yt_music_dl.config.Path.cwd")
+    def test_cwd_downloads_creation(self, mock_cwd):
+        """Test that running from a custom working directory creates a downloads subfolder."""
+        mock_cwd.return_value = Path("/workspace/my_project")
+        resolved = config.get_default_download_dir()
+        self.assertEqual(resolved.name, "downloads")
+        self.assertEqual(resolved.parent.name, "my_project")
+
+    @patch("yt_music_dl.config.Path.cwd")
+    def test_cwd_already_download_dir(self, mock_cwd):
+        """Test that running from inside a directory already named downloads saves directly there."""
+        target = Path("/workspace/my_project/downloads").resolve()
+        mock_cwd.return_value = target
+        resolved = config.get_default_download_dir()
+        self.assertEqual(resolved.name, "downloads")
+        self.assertEqual(resolved, target)

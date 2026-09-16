@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "dus-yt-music-dl"
-version = "1.1.7"
+version = "1.1.8"
 description = "High-performance YouTube Music audio downloader with Android phone emulation, 1:1 album art, and multi-quality transcode."
 readme = "README.md"
 requires-python = ">=3.10"

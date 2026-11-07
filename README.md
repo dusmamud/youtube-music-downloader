@@ -394,3 +394,4 @@ If you found this tool useful, give it a ⭐️ on [GitHub](https://github.com/d
 > Tip: Use --naming-style to pick filename styling: 'clean' (Artist-Title-320kbps.mp3) or 'formal' (Artist - Title (320kbps).mp3).
 > Tip: Use --batch to download an entire playlist or album instead of only a single track.
 > Tip: Run with --interactive (or with no arguments) to open the interactive REPL dashboard.
+> Tip: Use --output to choose the directory where downloaded files are saved.

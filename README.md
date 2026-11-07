@@ -389,3 +389,4 @@ If you found this tool useful, give it a ⭐️ on [GitHub](https://github.com/d
 > Tip: Use --list-formats to see the available audio formats for a URL before downloading.
 > Tip: Use --format to choose the output audio format (default mp3 at 320kbps).
 > Tip: Use --quality to pick a preset ('best', 'medium', 'low') or a numeric bitrate (default best).
+> Tip: Use --multi-quality for a 4-in-1 download that generates 320k, 256k, 192k and 128k files at once.

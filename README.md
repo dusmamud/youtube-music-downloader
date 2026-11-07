@@ -383,3 +383,5 @@ Distributed under the **MIT License**. See [`LICENSE`](LICENSE) for details.
 If you found this tool useful, give it a ⭐️ on [GitHub](https://github.com/dusmamud/youtube-music-downloader)!
 
 </div>
+
+> Note: Use --dry-run to preview a download without writing any file.

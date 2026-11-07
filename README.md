@@ -400,3 +400,4 @@ If you found this tool useful, give it a ⭐️ on [GitHub](https://github.com/d
 > Tip: On Android Termux, the tool automatically detects your phone storage (`/sdcard/Download` or `~/storage/downloads`), so downloaded songs appear in your music player without manual file transfers.
 > Tip: Pressing `Ctrl + C` cancels gracefully — it cleanly removes `.part` and `.ytdl` temp files and exits immediately with zero tracebacks.
 > Tip: By default no browser session is needed — the tool emulates Android InnerTube client headers (Google Pixel 8 Pro, Galaxy S24 Ultra, OnePlus 12) for high request reliability.
+> Tip: Cover art is cropped to a clean 1:1 square (up to 1200x1200px) and embedded as ID3v2.3 tags, so album art displays correctly in music players.

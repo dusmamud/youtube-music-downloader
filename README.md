@@ -395,3 +395,4 @@ If you found this tool useful, give it a ⭐️ on [GitHub](https://github.com/d
 > Tip: Use --batch to download an entire playlist or album instead of only a single track.
 > Tip: Run with --interactive (or with no arguments) to open the interactive REPL dashboard.
 > Tip: Use --output to choose the directory where downloaded files are saved.
+> Tip: For your private or unlisted playlists, authenticate with a browser session — e.g. `python main.py "URL" --browser firefox` (Chrome and Edge also work).

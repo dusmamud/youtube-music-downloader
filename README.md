@@ -392,3 +392,4 @@ If you found this tool useful, give it a ⭐️ on [GitHub](https://github.com/d
 > Tip: Use --multi-quality for a 4-in-1 download that generates 320k, 256k, 192k and 128k files at once.
 > Tip: Use --qualities to set custom comma-separated bitrates for a multi-quality download (default 320k,256k,192k,128k).
 > Tip: Use --naming-style to pick filename styling: 'clean' (Artist-Title-320kbps.mp3) or 'formal' (Artist - Title (320kbps).mp3).
+> Tip: Use --batch to download an entire playlist or album instead of only a single track.

@@ -402,3 +402,4 @@ If you found this tool useful, give it a ⭐️ on [GitHub](https://github.com/d
 > Tip: By default no browser session is needed — the tool emulates Android InnerTube client headers (Google Pixel 8 Pro, Galaxy S24 Ultra, OnePlus 12) for high request reliability.
 > Tip: Cover art is cropped to a clean 1:1 square (up to 1200x1200px) and embedded as ID3v2.3 tags, so album art displays correctly in music players.
 > Tip: If you hit `HTTP Error 403: Forbidden`, switch to the default Android phone emulation (`--auth-mode android`) — the desktop web bot-check is the usual trigger.
+> Tip: Install or upgrade from PyPI in one command with `pip install --upgrade dus-yt-music-dl` — it works on Windows, macOS, Linux, and Android Termux.

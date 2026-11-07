@@ -397,3 +397,4 @@ If you found this tool useful, give it a ⭐️ on [GitHub](https://github.com/d
 > Tip: Use --output to choose the directory where downloaded files are saved.
 > Tip: For your private or unlisted playlists, authenticate with a browser session — e.g. `python main.py "URL" --browser firefox` (Chrome and Edge also work).
 > Tip: You can also pass a custom cookies file instead of a browser session: `python main.py "URL" --cookies "C:\path\to\cookies.txt"` (Netscape format).
+> Tip: On Android Termux, the tool automatically detects your phone storage (`/sdcard/Download` or `~/storage/downloads`), so downloaded songs appear in your music player without manual file transfers.

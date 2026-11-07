@@ -387,3 +387,4 @@ If you found this tool useful, give it a ⭐️ on [GitHub](https://github.com/d
 > Note: Use --dry-run to preview a download without writing any file.
 
 > Tip: Use --list-formats to see the available audio formats for a URL before downloading.
+> Tip: Use --format to choose the output audio format (default mp3 at 320kbps).
